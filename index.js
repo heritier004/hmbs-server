@@ -18,6 +18,9 @@ app.use("/",userRouter);
 app.use("/",hallSeatRouter);
 app.use("/",reservationRouter);
 app.use("/",ManageReservationRouter);
-app.listen(process.env.PORT || PORT, ()=>{
-console.log(`server running on port ${PORT} .....`)
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, ()=>{
+console.log(`server running on port ${port} .....`)
 })

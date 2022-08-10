@@ -6,7 +6,8 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.7",
-    "pdfkit": "^0.13.0"
+    "pdfkit": "^0.13.0",
+    "react-scripts": "^4.0.2"
   },
   "scripts": {
     "start": "node index.js"
