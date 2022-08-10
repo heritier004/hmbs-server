@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path")
 const movieRouter = require("./routes/movieRoute");
 const scheduleRouter = require("./routes/scheduleRoute");
 const userRouter = require("./routes/userRoute");
@@ -7,7 +8,7 @@ const hallSeatRouter= require("./routes/hallseatRoute");
 const reservationRouter = require("./routes/reservationRoute");
 
 const app = express();
-const mysql = require("mysql2")
+const mysql = require("mysql")
 const cors = require("cors");
 const { makeReservation } = require("./controller/reservationController");
 app.use(cors());
@@ -18,6 +19,10 @@ app.use("/",userRouter);
 app.use("/",hallSeatRouter);
 app.use("/",reservationRouter);
 app.use("/",ManageReservationRouter);
-app.listen(process.env.PORT || PORT, ()=>{
-console.log(`server running on port ${PORT} .....`)
+
+const port = process.env.PORT || 5001;
+app.use(express.static(path.join(__dirname + "public")))
+
+app.listen(port, ()=>{
+console.log(`server running on port ${port} .....`)
 })
